@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link type="text/css" rel="stylesheet" href="/static/main.css" />
+	<title>{% block title %}Home{% endblock %} - SITE NAME</title>
+	{% block head %}	
+	{% endblock %}
+</head>
+
+<body>{% block heading %}<a href="/" class="main-title">Home</a>{% endblock %}
+
+<div class="login-area">
+	{% block login %}{% if _user %}
+	{{_user}} | <a class="login-link" href="/logout?redirect={{_url}}">logout</a>
+	{% else %}
+	<a class="login-link" href="/login?redirect={{_url}}">login</a>
+	|
+	<a class="login-link" href="/signup?redirect={{_url}}">signup</a>    
+	{% endif %}{% endblock %}
+</div>
+
+<div class="menu">
+	<p><a class="menulink" href="/">Home</a></p>
+	<br/>
+	<p><a class="menulink" href="/blog">Blog</a><br/>
+		<a class="menulink sublink" href="/blog/newpost">New Post</a></p>
+	<br/>
+	<p><a class="menulink" href="/wiki">Wiki</a></p>
+	<br/>
+	<p><a class="menulink" href="/echo">Echo</a></p>	
+</div>
+
+<div class="content">{% block content %}
+	<p>This is the main page. Not much goes on here.</p>
+	Have some Coleridge:<br/><br/>
+	In Xanadu did Kubla Khan<br/>
+	A stately pleasure-dome decree:<br/>
+	Where Alph, the sacred river, ran<br/>
+	Through caverns measureless to man<br/>
+	Down to a sunless sea.<br/><br/>
+
+	So twice five miles of fertile ground<br/>
+	With walls and towers were girdled round:<br/>
+	And there were gardens bright with sinuous rills,<br/>
+	Where blossomed many an incense-bearing tree;<br/>
+	And here were forests ancient as the hills,<br/>
+	Enfolding sunny spots of greenery.<br/><br/>
+
+	Weave a circle round him thrice,<br/>
+	And close your eyes with holy dread,<br/>
+	For he on honey-dew hath fed<br/>
+	And drunk the milk of Paradise.<br/>
+	{% endblock %}</div>
+</body>
+
+</html>

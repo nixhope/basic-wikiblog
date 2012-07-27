@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{url.capitalize()}} history @ Wiki{% endblock %}
+{% block heading %}<a href="/wiki" class="main-title">Wiki</a>{% endblock %}
+	{% block content %}<div class="post-heading"><span class="post-title">{{url.capitalize()}} history</span>
+	</div><br/>	
+	<table>{% for wiki in wikis %}
+		<tr>
+			<td>{{wiki.created.strftime("%a, %d %B %Y %H:%M:%S UTC")}}</td><td>&nbsp;</td>
+			<td>{{wiki.content[:100]}}</td>
+			<td><span class="post-date"><a href="/wiki/{{wiki.url}}?history={{wiki.key().id()}}" class="login-link">View</a>
+		| <a href="/wiki/_edit/{{wiki.url}}?history={{wiki.key().id()}}" class="login-link">Edit</a></span></td>
+		</tr>{% endfor %}
+	</table>
+	<br/><br/>
+{% endblock %}
+

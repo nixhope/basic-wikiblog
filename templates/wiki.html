@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{title}} @ Wiki{% endblock %}
+{% block heading %}<a href="/wiki" class="main-title">Wiki</a>{% endblock %}
+	{% block content %}<div class="post-heading"><span class="post-title">{{title}}</span>
+		<span class="post-date wikimeta"><a href="/wiki/_edit/{{url}}?history={{version}}" class="login-link">Edit</a>
+		| <a href="/wiki/_history/{{url}}" class="login-link">History</a></span>
+	</div><br/>	
+	{{content}}	
+	<br/><br/>
+	<div class="post-date">Last edited by {{author}}: {{created.strftime("%a, %d %B %Y %H:%M:%S UTC")}}</div>
+{% endblock %}
+

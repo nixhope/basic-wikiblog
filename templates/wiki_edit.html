@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{title}} @ Wiki{% endblock %}
+{% block heading %}<a href="/wiki" class="main-title">Wiki</a>{% endblock %}
+	{% block content %}<div class="post-heading"><span class="post-title">{{title}}</span>
+		<span class="post-date wikimeta"><a href="/wiki/{{url}}?history={{version}}" class="login-link">View</a>
+		| <a href="/wiki/_history/{{url}}" class="login-link">History</a></span>
+	</div><br/>	
+	<form method="post">
+		<table>
+			<tr>
+				<td><input type="text" class="newcontent" name="title" value="{{title}}"/></td>
+			</tr>
+			<tr>
+				<td><textarea class="newcontent" name="content">{{content}}</textarea></td>
+			</tr>
+			<tr><td class="error label">{{error}}</td></tr>
+			<tr>				
+				<td><input type="submit" value="Submit Edit"/></td>
+			</tr>
+		</table>
+		<input type="hidden" name="link" value="{{url}}"/>
+		<input type="hidden" name="version" value="{{version}}"/>
+	</form>
+	<br/>
+	<div class="post-date">Editor: {{_user}}</div>
+{% endblock %}
+

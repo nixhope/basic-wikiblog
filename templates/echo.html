@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Echo{% endblock %}
+{% block heading %}<a href="/echo" class="main-title">Echo Page</a>{% endblock %}
+{% block content %}
+	{% for line in lines %}<p>{{line}}<p/>
+	{% endfor %}
+{% endblock %}

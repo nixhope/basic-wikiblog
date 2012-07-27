@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Blog{% endblock %}
+{% block heading %}<a href="/blog" class="main-title">Blog</a>{% endblock %}
+{% block content %}
+{% for post in posts %}
+	<div class="post">
+		<div class="post-heading">
+			<a href="/blog/p/{{post.key().id()}}" class="post-title">{{post.title}} by
+			{% if post.author %}{{post.author}}{% else %}Anon{% endif %}</a>
+			<div class="post-date">
+				{{post.created.strftime("%a, %d %B %Y %H:%M:%S UTC")}}
+			</div>
+		</div>
+		<div class="post-content">
+			{{post.content}}
+		</div>
+		<br/><br/>
+	</div>
+	{% endfor %}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Sign up{% endblock %}
+{% block heading %}<span class="main-title">Signup Page</span>{% endblock %}
+{% block login %}{% if _user %}
+	{{_user}} | <a class="login-link" href="/logout?redirect={{_url}}">logout</a>
+	{% else %}
+	<a class="login-link" href="/login?redirect={{redirect}}">login</a>
+	|
+	<a class="login-link" href="/signup?redirect={{redirect}}">signup</a>    
+	{% endif %}{% endblock %}
+{% block content %}
+	<h2>Sign in with any of the following:</h2>
+	{% for (name, url) in providers.items() %}
+	<a href="{{url}}"><img src="/static/icon_{{name.lower()}}.png" height="48px" width="48px" alt="{{name}}"/></a> 
+	{% endfor %}
+	<br/><br/><br/>
+	<h2>Or sign up below:</h2>
+	<form method="post">
+		<table>
+			<tr>
+				<td class="label">Username</td>
+				<td><input type="text" name="username" value="{{username}}"/></td>
+				<td class="error">{{usernameerror}}</td>
+			</tr>
+			<tr>
+				<td class="label">Password</td>
+				<td><input type="password" name="password" value=""/></td>
+				<td class="error">{{passworderror}}</td>
+			</tr>
+			<tr>
+				<td class="label">Verify Password</td>
+				<td><input type="password" name="verify" value=""/></td>
+				<td class="error">{{verifyerror}}</td>
+			</tr>
+			<tr>
+				<td class="label">Email (optional)</td>
+				<td><input type="text" name="email" value="{{email}}"/></td>
+				<td class="error">{{emailerror}}</td>
+			</tr>
+		</table>
+		<input type="hidden" name="redirect" value="{{redirect}}"/>
+		<input type="submit" value="Sign up">
+		<br/><br/><br/>
+	</form>
+{% endblock %}

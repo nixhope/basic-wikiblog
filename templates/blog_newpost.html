@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Blog{% endblock %}
+{% block heading %}<a href="/blog" class="main-title">Blog</a>{% endblock %}
+{% block content %}
+	<h2>Create a new blog post:</h2>
+	<form method = "post">
+		<table>
+			<tr>
+				<td class="label">Author</td>
+				<td>{{username}}</td>
+			</tr>
+			<tr>
+				<td class="label">Title</td>
+				<td><input type="text" class="newcontent" name="subject" value="{{title}}"/></td>
+			</tr>
+			<tr>
+				<td class="label">Content</td>
+				<td><textarea class="newcontent" name="content">{{content}}</textarea></td>
+			</tr>
+			<tr>
+				<td class="error label"> </td>
+				<td><input type="submit" value="Create Post"/></td>
+			</tr>
+		</table>
+		<span class="error label">{{error}}</span>
+	</form>
+{% endblock %}
