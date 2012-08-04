@@ -7,5 +7,5 @@ Written in Python2.7, Designed to run on Google App Engine. Should be easily cus
 
  - webapp2
  - jinja2
- - bcrypt (included)
+ - bcrypt (https://github.com/erlichmen/py-bcrypt)
  - google.appengine
